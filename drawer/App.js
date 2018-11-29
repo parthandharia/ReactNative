@@ -20,7 +20,7 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <ImageBackground
-          source={require("./Images/goku.png")}
+          source={require("./Images/backgroud2.jpg")}
           style={{ width: "100%", height: "90%" }}
         />
         <Text> Home Page</Text>
@@ -36,10 +36,54 @@ class NotificationScreen extends Component {
       <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
     )
   };
+
   render() {
     return (
       <View style={styles.container}>
-        <Button onPress={this.props.navigation.navigate("")} title="Go Back" />
+        <Button
+          onPress={this.props.navigation.navigate("go back")}
+          title="Go Back"
+        />
+      </View>
+    );
+  }
+}
+
+class LoginPage extends Component {
+  static navigationOptions = {
+    dreawerLable: "Login",
+    drawerIcon: () => (
+      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
+    )
+  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          source={require("./Images/backgroud1.jpg")}
+          style={{ width: "100%", height: "90%" }}
+        />
+        <Text style={{ fontsize: "60dp" }}> Login Page </Text>
+      </View>
+    );
+  }
+}
+
+class SignUpPage extends Component {
+  static navigationOptions = {
+    dreawerLable: "SignUp",
+    drawerIcon: () => (
+      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
+    )
+  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          source={require("./Images/backgroud1.jpg")}
+          style={{ width: "100%", height: "90%" }}
+        />
+        <Text> SignUp Page </Text>
       </View>
     );
   }
@@ -64,12 +108,18 @@ export default DrawerNavigator(
     },
     Notifications: {
       screen: NotificationScreen
+    },
+    Login: {
+      screen: LoginPage
+    },
+    SignUp: {
+      screen: SignUpPage
     }
   },
   {
     drawerPosition: "left",
     initialRouteName: "Notifications",
-    drawerBackgroundColor: "#15701E",
+    drawerBackgroundColor: "#ffffff",
     drawerWidth: 200
   }
 );
