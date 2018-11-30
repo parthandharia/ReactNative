@@ -11,7 +11,8 @@
     "react-native": "0.57.7",
     "react-native-div": "^1.1.2",
     "react-native-really-awesome-button": "^0.8.3",
-    "react-navigation": "^2.18.2"
+    "react-navigation": "^2.18.2",
+    "splash-screen": "4.0.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

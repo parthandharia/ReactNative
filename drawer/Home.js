@@ -15,7 +15,7 @@ class Home extends Component {
     super();
     this.handlepress = this.handlepress.bind(this);
   }
-  static navigationOptions = {
+  static navigationOptions = () => ({
     dreawerLable: "Home",
     drawerIcon: () => (
       <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
@@ -27,7 +27,7 @@ class Home extends Component {
     //     </TouchableOpacity>
     //   </View>
     // )
-  };
+  });
   handlepress() {
     this.props.navigation.openDrawer();
   }

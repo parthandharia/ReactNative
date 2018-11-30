@@ -1,25 +1,30 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Image, Button } from "react-native";
+import { ImageBackground, View, Image, Button, StyleSheet } from "react-native";
 
 class NotificationScreen extends Component {
   constructor() {
     super();
     this.handlepress = this.handlepress.bind(this);
   }
-  static navigationOptions = {
-    drawerLabel: "Notifications",
+  static navigationOptions = () => ({
+    title: "Notifications",
     drawerIcon: () => (
       <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
     )
-  };
+  });
   handlepress() {
     this.props.navigation.navigate("Home1");
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Button onPress={this.handlepress} title="Go Back" />
-      </View>
+      <ImageBackground
+        source={require("./Images/touch.jpg")}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <View style={styles.container}>
+          <Button onPress={this.handlepress} title="Go Back" />
+        </View>
+      </ImageBackground>
     );
   }
 }

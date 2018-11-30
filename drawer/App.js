@@ -6,37 +6,40 @@ import NotificationScreen from "./Notifications.js";
 
 const MainScreen = StackNavigator({
   Home1: {
-    screen: Home
+    screen: Home,
+    navigationOptions: () => ({
+      title: "Home"
+    })
   },
   Notification: {
     screen: NotificationScreen
   },
-  Login1: {
+  Login: {
     screen: Login
   },
-  SignUp1: {
+  SignUp: {
     screen: SignUp
   }
 });
 
 export default DrawerNavigator(
   {
-    DontTouch: {
+    Home: {
       screen: MainScreen
     },
-    Home: {
-      screen: Home
-    },
-    Notifications: {
+
+    Notification: {
       screen: NotificationScreen
     },
     SignUp: {
       screen: SignUp
+    },
+    Login: {
+      screen: Login
     }
   },
   {
     drawerPosition: "left",
-    initialRouteName: "Home",
     drawerBackgroundColor: "#FFFFFF",
     drawerWidth: 200
   }

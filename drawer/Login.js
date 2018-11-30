@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  Alert,
+  Image,
   ImageBackground
 } from "react-native";
 import AwesomeButton from "react-native-really-awesome-button";
@@ -12,7 +12,10 @@ import { Div } from "react-native-div";
 
 class Login extends Component {
   static navigationOptions = () => ({
-    title: "Login"
+    title: "Login",
+    drawerIcon: () => (
+      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
+    )
   });
 
   constructor() {
@@ -86,6 +89,10 @@ const styles = StyleSheet.create({
   content: {
     fontSize: 20,
     backgroundColor: "#ccc"
+  },
+  Icon: {
+    width: 24,
+    height: 24
   }
 });
 export default Login;

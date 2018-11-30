@@ -15,14 +15,14 @@ class SignUp extends Component {
     this.handleLogin = this.handleLogin.bind(this);
   }
   static navigationOptions = {
-    drawerLabel: "SignUp",
+    title: "SignUp",
     drawerIcon: () => (
       <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
     )
   };
 
   handleLogin() {
-    this.props.navigation.navigate("Login1");
+    this.props.navigation.navigate("Login");
   }
   render() {
     return (
