@@ -1,125 +1,43 @@
-import React, { Component } from "react";
-import {
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  Button,
-  ImageBackground
-} from "react-native";
-import { DrawerNavigator } from "react-navigation";
+import { DrawerNavigator, StackNavigator } from "react-navigation";
+import SignUp from "./SignUp";
+import Home from "./Home.js";
+import Login from "./Login.js";
+import NotificationScreen from "./Notifications.js";
 
-class HomeScreen extends Component {
-  static navigationOptions = {
-    dreawerLable: "Home",
-    drawerIcon: () => (
-      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
-    )
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <ImageBackground
-          source={require("./Images/backgroud2.jpg")}
-          style={{ width: "100%", height: "90%" }}
-        />
-        <Text> Home Page</Text>
-      </View>
-    );
-  }
-}
-
-class NotificationScreen extends Component {
-  static navigationOptions = {
-    drawerLabel: "Notifications",
-    drawerIcon: () => (
-      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
-    )
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Button
-          onPress={this.props.navigation.navigate("go back")}
-          title="Go Back"
-        />
-      </View>
-    );
-  }
-}
-
-class LoginPage extends Component {
-  static navigationOptions = {
-    dreawerLable: "Login",
-    drawerIcon: () => (
-      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
-    )
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <ImageBackground
-          source={require("./Images/backgroud1.jpg")}
-          style={{ width: "100%", height: "90%" }}
-        />
-        <Text style={{ fontsize: "60dp" }}> Login Page </Text>
-      </View>
-    );
-  }
-}
-
-class SignUpPage extends Component {
-  static navigationOptions = {
-    dreawerLable: "SignUp",
-    drawerIcon: () => (
-      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
-    )
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <ImageBackground
-          source={require("./Images/backgroud1.jpg")}
-          style={{ width: "100%", height: "90%" }}
-        />
-        <Text> SignUp Page </Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+const MainScreen = StackNavigator({
+  Home1: {
+    screen: Home
   },
-  Icon: {
-    width: 24,
-    height: 24
+  Notification: {
+    screen: NotificationScreen
+  },
+  Login1: {
+    screen: Login
+  },
+  SignUp1: {
+    screen: SignUp
   }
 });
 
 export default DrawerNavigator(
   {
+    DontTouch: {
+      screen: MainScreen
+    },
     Home: {
-      screen: HomeScreen
+      screen: Home
     },
     Notifications: {
       screen: NotificationScreen
     },
-    Login: {
-      screen: LoginPage
-    },
     SignUp: {
-      screen: SignUpPage
+      screen: SignUp
     }
   },
   {
     drawerPosition: "left",
-    initialRouteName: "Notifications",
-    drawerBackgroundColor: "#ffffff",
+    initialRouteName: "Home",
+    drawerBackgroundColor: "#FFFFFF",
     drawerWidth: 200
   }
 );

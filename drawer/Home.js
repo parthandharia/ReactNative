@@ -7,7 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity
 } from "react-native";
-import Icon from "react-native-vector-icons";
+//import Icon from "react-native-vector-icons";
 import AwesomeButton from "react-native-really-awesome-button";
 
 class Home extends Component {
