@@ -7,14 +7,14 @@ import {
   ImageBackground
 } from "react-native";
 import AwesomeButton from "react-native-really-awesome-button";
-import background from "./Images/background3.jpg";
+import background from "./Images/login1.jpg";
 import { Div } from "react-native-div";
 
 class Login extends Component {
   static navigationOptions = () => ({
     title: "Login",
     drawerIcon: () => (
-      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
+      <Image source={require("./Images/login.png")} style={styles.Icon} />
     )
   });
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     width: null,
     height: null,
     resizeMode: "cover",
-    opacity: 0.7,
+    opacity: 0.9,
     justifyContent: "center",
     alignItems: "center"
   },

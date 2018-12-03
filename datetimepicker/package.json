@@ -1,5 +1,5 @@
 {
-  "name": "drawer",
+  "name": "datetimepicker",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,17 +10,12 @@
     "moment": "^2.22.2",
     "react": "16.6.1",
     "react-native": "0.57.7",
-    "react-native-div": "^1.1.2",
-    "react-native-modal-datetime-picker": "^4.13.0",
-    "react-native-really-awesome-button": "^0.8.3",
-    "react-native-vector-icons": "^6.1.0",
-    "react-navigation": "^2.18.2",
-    "splash-screen": "4.0.0"
+    "react-native-modal-datetime-picker": "^4.13.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.49.2",
+    "metro-react-native-babel-preset": "0.50.0",
     "react-test-renderer": "16.6.1"
   },
   "jest": {

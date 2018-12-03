@@ -7,7 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity
 } from "react-native";
-//import Icon from "react-native-vector-icons";
+import Icon from "react-native-vector-icons";
 import AwesomeButton from "react-native-really-awesome-button";
 
 class Home extends Component {
@@ -18,15 +18,15 @@ class Home extends Component {
   static navigationOptions = () => ({
     dreawerLable: "Home",
     drawerIcon: () => (
-      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
+      <Image source={require("./Images/home.png")} style={styles.Icon} />
+    ),
+    headerleft: (
+      <View style={{ paddingHorizontal: 10 }}>
+        <TouchableOpacity onpress={() => this.navigationOptions.openDrawer()}>
+          <Icon source={require("./Images/list.png")} />
+        </TouchableOpacity>
+      </View>
     )
-    // headerLeft: (
-    //   <View style={{ paddingHorizontal: 10 }}>
-    //     <TouchableOpacity onpress={() => this.navigationOptions.openDrawer()}>
-    //       <Icon name="drawer" size={35} color="green" />
-    //     </TouchableOpacity>
-    //   </View>
-    // )
   });
   handlepress() {
     this.props.navigation.openDrawer();
@@ -34,16 +34,21 @@ class Home extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={{ fontSize: 40 }}> Home Page</Text>
-        <AwesomeButton
-          backgroundColor="#099fff"
-          style={styles.button}
-          onPress={this.handlepress}
-        >
-          Open Drawer
-        </AwesomeButton>
-      </View>
+      <ImageBackground
+        source={require("./Images/home1.jpg")}
+        style={{ width: "100%", height: "100%", opacity: 0.9 }}
+      >
+        <View style={styles.container}>
+          <Text style={{ fontSize: 40 }}> Home Page</Text>
+          <AwesomeButton
+            backgroundColor="#099fff"
+            style={styles.button}
+            onPress={this.handlepress}
+          >
+            Open Drawer
+          </AwesomeButton>
+        </View>
+      </ImageBackground>
     );
   }
 }
@@ -52,8 +57,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#2353F0"
+    alignItems: "center"
   },
   Icon: {
     width: 24,

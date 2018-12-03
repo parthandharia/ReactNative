@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { ImageBackground, View, Image, Button, StyleSheet } from "react-native";
+import { ImageBackground, View, Image, StyleSheet } from "react-native";
+import AwesomeButton from "react-native-really-awesome-button";
 
 class NotificationScreen extends Component {
   constructor() {
@@ -9,7 +10,10 @@ class NotificationScreen extends Component {
   static navigationOptions = () => ({
     title: "Notifications",
     drawerIcon: () => (
-      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
+      <Image
+        source={require("./Images/notification.png")}
+        style={styles.Icon}
+      />
     )
   });
   handlepress() {
@@ -19,10 +23,16 @@ class NotificationScreen extends Component {
     return (
       <ImageBackground
         source={require("./Images/touch.jpg")}
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: "100%", opacity: 0.8 }}
       >
         <View style={styles.container}>
-          <Button onPress={this.handlepress} title="Go Back" />
+          <AwesomeButton
+            backgroundColor="#099fff"
+            style={styles.button}
+            onPress={this.handlepress}
+          >
+            Go Back
+          </AwesomeButton>
         </View>
       </ImageBackground>
     );
@@ -33,6 +43,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  button: {
+    backgroundColor: "black",
+    fontSize: 20
   },
   Icon: {
     width: 24,

@@ -8,6 +8,8 @@ import {
   ImageBackground
 } from "react-native";
 import AwesomeButton from "react-native-really-awesome-button";
+import DateTimePicker from "react-native-modal-datetime-picker";
+import { formatDateTime } from "./api";
 
 class SignUp extends Component {
   constructor() {
@@ -17,8 +19,25 @@ class SignUp extends Component {
   static navigationOptions = {
     title: "SignUp",
     drawerIcon: () => (
-      <Image source={require("./Images/parth.jpg")} style={styles.Icon} />
+      <Image source={require("./Images/signup.png")} style={styles.Icon} />
     )
+  };
+
+  state = {
+    showDatePicker: null,
+    date: ""
+  };
+  handleDatePress = () => {
+    this.setState({ showDatePicker: true });
+  };
+
+  handleDatePicked = date => {
+    this.setState({ date: date });
+    this.handleDatePickerHide();
+  };
+
+  handleDatePickerHide = () => {
+    this.setState({ showDatePicker: "false" });
   };
 
   handleLogin() {
@@ -27,8 +46,8 @@ class SignUp extends Component {
   render() {
     return (
       <ImageBackground
-        source={require("./Images/background1.jpg")}
-        style={{ width: "100%", height: "100%" }}
+        source={require("./Images/signup1.jpg")}
+        style={{ width: "100%", height: "100%", opacity: 0.7 }}
       >
         <View style={StyleSheet.container}>
           <Text style={styles.Text}>Username</Text>
@@ -62,13 +81,20 @@ class SignUp extends Component {
           />
 
           <Text style={styles.Text}>BirthDate</Text>
+
           <TextInput
-            style={styles.edittext}
-            secureTextEntry={false}
-            autoCorrect={false}
-            autoCapitalize={"none"}
-            underlineColorAndroid="transparent"
-            maxLength={25}
+            style={[styles.text, styles.bordertop]}
+            placeholder="Select Date"
+            spellCheck={false}
+            value={formatDateTime(this.state.date.toString())}
+            editable={!this.state.showDatePicker}
+            onFocus={this.handleDatePress}
+            onCancel={this.handleDatePickerHide}
+          />
+          <DateTimePicker
+            isVisible={this.state.showDatePicker}
+            mode="datetime"
+            onConfirm={this.handleDatePicked}
           />
 
           <Text style={styles.Text}>Password</Text>
@@ -115,8 +141,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#66ccff"
   },
   Text: {
-    color: "white",
-    fontSize: 20
+    color: "black",
+    fontSize: 30
   },
   button: {
     backgroundColor: "black",

@@ -40,7 +40,7 @@ export default DrawerNavigator(
   },
   {
     drawerPosition: "left",
-    drawerBackgroundColor: "#FFFFFF",
+    drawerBackgroundColor: "#66FF33",
     drawerWidth: 200
   }
 );
